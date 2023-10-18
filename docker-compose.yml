@@ -1,0 +1,16 @@
+version: '3'
+services:
+  # 定義Node.js服務
+  node-app:
+    # 使用上面定義的Dockerfile構建容器
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # 映射容器的3000端口到主機的3000端口
+    ports:
+      - "3000:3000"
+    # 可以添加其他的設置，比如環境變量、卷等
+    environment:
+      NODE_ENV: production  # 設置Node.js環境為production
+    # 這是你的Node.js應用程序的名稱
+    container_name: node-app
